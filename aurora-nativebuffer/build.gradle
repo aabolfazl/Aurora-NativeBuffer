@@ -3,11 +3,19 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 30
+
+    sourceSets.main.jniLibs.srcDirs = ['src/main/cpp/']
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/cpp/']
+        }
+    }
 
     defaultConfig {
         minSdk 16
-        targetSdk 32
+        targetSdk 30
         versionCode 1
         versionName "1.0"
         ndkVersion "21.4.7075529"

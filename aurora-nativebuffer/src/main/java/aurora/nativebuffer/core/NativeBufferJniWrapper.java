@@ -9,15 +9,14 @@
  *
  */
 
-#include <jni.h>
-#include <algorithm>
-#include "logger/Logger.h"
+package aurora.nativebuffer.core;
 
-extern "C" {
-JNIEXPORT jlong Java_aurora_nativebuffer_core_JNILoader_test(
-        JNIEnv *env,
-        jclass clazz) {
-    return 123;
-}
+import java.nio.ByteBuffer;
+
+class NativeBufferJniWrapper {
+
+    public static native long native_create(int cap);
+
+    public static native ByteBuffer native_get_java_buffer(long address);
 
 }

@@ -13,7 +13,9 @@ package aurora.nativebuffer.core;
 
 import android.util.Log;
 
-public class JNIBinder {
+public class JNILoader {
+    private static final String TAG = JNILoader.class.getSimpleName();
+
     private static final String LIBRARY_NAME = "aurora-nativebuffer";
     private static boolean initialized;
 
@@ -29,7 +31,7 @@ public class JNIBinder {
             e.printStackTrace();
         }
 
-        Log.i("akay", "load: " + test());
+        Log.i(TAG, "load: " + test());
     }
 
     public static native long test();

@@ -19,13 +19,13 @@ import androidx.startup.Initializer;
 import java.util.ArrayList;
 import java.util.List;
 
-import aurora.nativebuffer.core.JNIBinder;
+import aurora.nativebuffer.core.JNILoader;
 
 public class SdkInitializer implements Initializer<Void> {
     @NonNull
     @Override
     public Void create(@NonNull Context context) {
-        JNIBinder.load();
+        JNILoader.load();
         return null;
     }
 

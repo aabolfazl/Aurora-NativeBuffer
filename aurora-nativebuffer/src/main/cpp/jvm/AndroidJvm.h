@@ -23,6 +23,8 @@ public:
     }
 
     void init(JavaVM *jvm, JNIEnv *pEnv);
+    JavaVM *getJavaVm() { return javaVm; }
+    JNIEnv *getJavaEnv() { return javaEnv; }
 
 protected:
     JavaVM *javaVm;

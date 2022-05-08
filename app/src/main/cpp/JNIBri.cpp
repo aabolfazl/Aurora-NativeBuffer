@@ -11,12 +11,12 @@
 
 #include <jni.h>
 #include <algorithm>
-#include "logger/Logger.h"
 
 extern "C" {
-JNIEXPORT jlong Java_aurora_nativebuffer_core_JNILoader_test(
+JNIEXPORT jlong Java_aurora_nativebuffer_sample_MainActivity_test2(
         JNIEnv *env,
         jclass clazz) {
+
     return 123;
 }
 
