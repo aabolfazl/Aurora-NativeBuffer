@@ -1,4 +1,4 @@
-# Aurora-NativeBuffer
+# Aurora-NativeBuffer(not complete!)
 
 A small tool for transferring data objects between Java and C++ via buufer, from NDK to SDK, something like Google ProtoBuffer but smaller and customized
 
