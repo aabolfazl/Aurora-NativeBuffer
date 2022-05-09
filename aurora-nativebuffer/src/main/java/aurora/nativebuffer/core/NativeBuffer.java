@@ -25,12 +25,14 @@ public class NativeBuffer {
     private int position;
 
     public NativeBuffer(int capacity) {
-        address = NativeBufferJniWrapper.native_create(capacity);
+        address = NativeBufferJniWrapper.nativeCreate(capacity);
         if (address != 0) {
-            buffer = NativeBufferJniWrapper.native_get_java_buffer(address);
-            buffer.position(0);
-            buffer.limit(capacity);
-            buffer.order(ByteOrder.LITTLE_ENDIAN);
+            buffer = NativeBufferJniWrapper.nativeGetJavaBuffer(address);
+            if (buffer != null) {
+                buffer.position(0);
+                buffer.limit(capacity);
+                buffer.order(ByteOrder.LITTLE_ENDIAN);
+            }
         }
     }
 

@@ -5,6 +5,8 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import aurora.nativebuffer.core.NativeBuffer;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,8 +15,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         System.loadLibrary("nativebuffer");
 
-
-        Log.e("MainActivity", "onCreate: " + test2());
+        NativeBuffer buffer = new NativeBuffer(128);
+        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
+        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
+        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
+        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
     }
 
     public static native long test2();

@@ -12,6 +12,7 @@
 #include <jni.h>
 #include <algorithm>
 #include "logger/Logger.h"
+#include "core/NativeBuffer.h"
 
 extern "C" {
 JNIEXPORT jlong Java_aurora_nativebuffer_core_JNILoader_test(
@@ -19,5 +20,26 @@ JNIEXPORT jlong Java_aurora_nativebuffer_core_JNILoader_test(
         jclass clazz) {
     return 123;
 }
+
+JNIEXPORT jlong Java_aurora_nativebuffer_core_NativeBufferJniWrapper_nativeCreate(
+        JNIEnv *env,
+        jclass clazz,
+        jint cap) {
+
+
+    return (jlong) (intptr_t) new NativeBuffer(cap);
+}
+JNIEXPORT jobject Java_aurora_nativebuffer_core_NativeBufferJniWrapper_nativeGetJavaBuffer(
+        JNIEnv *env,
+        jclass clazz,
+        jlong address) {
+
+    auto *buffer = (NativeBuffer *) (intptr_t) address;
+    if (buffer == nullptr) {
+        return nullptr;
+    }
+    return buffer->asByteBuffer();
+}
+
 
 }

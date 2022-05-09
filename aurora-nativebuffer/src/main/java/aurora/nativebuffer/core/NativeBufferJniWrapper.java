@@ -15,8 +15,8 @@ import java.nio.ByteBuffer;
 
 class NativeBufferJniWrapper {
 
-    public static native long native_create(int cap);
+    public static native long nativeCreate(int cap);
 
-    public static native ByteBuffer native_get_java_buffer(long address);
+    public static native ByteBuffer nativeGetJavaBuffer(long address);
 
 }
