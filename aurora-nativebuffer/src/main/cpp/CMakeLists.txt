@@ -6,5 +6,6 @@ add_library(aurora-nativebuffer SHARED
         core/NativeBuffer.cpp
         logger/Logger.cpp
         jvm/AndroidJvm.cpp
+        Header.h
         )
 target_link_libraries(aurora-nativebuffer -landroid log)

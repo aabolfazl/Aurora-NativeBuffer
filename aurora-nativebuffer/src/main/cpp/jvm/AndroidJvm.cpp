@@ -17,7 +17,7 @@ void AndroidJvm::init(JavaVM *pJvm, JNIEnv *pEnv) {
 }
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
-    LOGI("JNI_OnLoad started");
+    logi("JNI_OnLoad started");
     JNIEnv *env = nullptr;
 
     if (vm->GetEnv((void **) &env, JNI_VERSION_1_6) != JNI_OK) {
@@ -26,11 +26,11 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 
     AndroidJvm::shared().init(vm, env);
 
-    LOGI("JNI_OnLoad successfully");
+    logi("JNI_OnLoad successfully");
 
     return JNI_VERSION_1_6;
 }
 
 void JNI_OnUnload(JavaVM *vm, void *reserved) {
-    LOGI("JNI_OnUnload");
+    logi("JNI_OnUnload");
 }

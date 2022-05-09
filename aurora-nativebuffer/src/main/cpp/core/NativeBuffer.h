@@ -15,7 +15,10 @@
 #include <stdint.h>
 #include <string>
 #include <jni.h>
+#include "../Header.h"
 
+#define INT_32 sizeof(int32_t)
+#define INT_64 sizeof(int64_t)
 
 class NativeBuffer {
 private:
@@ -36,10 +39,16 @@ public:
     uint32_t getLimit() { return limit; }
     uint32_t getCapacity() { return capacity; }
 
-    void putInt(int32_t int32);
     bool isReadOnly();
     bool isDirect();
     jobject asByteBuffer();
+
+    void putInt32(int32_t int32);
+    void putInt64(int64_t x);
+
+    int32_t readInt32();
+    int64_t readInt64();
+
 };
 
 

@@ -24,7 +24,11 @@ public class NativeBuffer {
     public ByteBuffer buffer;
     private int position;
 
-    public NativeBuffer(int capacity) {
+    public static NativeBuffer of(int capacity) {
+        return new NativeBuffer(capacity);
+    }
+
+    private NativeBuffer(int capacity) {
         address = NativeBufferJniWrapper.nativeCreate(capacity);
         if (address != 0) {
             buffer = NativeBufferJniWrapper.nativeGetJavaBuffer(address);
@@ -43,5 +47,30 @@ public class NativeBuffer {
             Log.e(TAG, "readInt32: ", e);
         }
         return 0;
+    }
+
+    public long readInt64() {
+        try {
+            return buffer.getLong();
+        } catch (Exception e) {
+            Log.e(TAG, "readInt64: ", e);
+        }
+        return 0;
+    }
+
+    public void writeInt32(int x) {
+        try {
+            buffer.putInt(x);
+        } catch (Exception e) {
+            Log.e(TAG, "writeInt32: ", e);
+        }
+    }
+
+    public void writeInt64(long x) {
+        try {
+            buffer.putLong(x);
+        } catch (Exception e) {
+            Log.e(TAG, "writeInt64: ", e);
+        }
     }
 }

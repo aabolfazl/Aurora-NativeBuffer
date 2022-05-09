@@ -9,7 +9,6 @@
  *
  */
 
-#include <jni.h>
 #include <algorithm>
 #include "logger/Logger.h"
 #include "core/NativeBuffer.h"
@@ -26,7 +25,6 @@ JNIEXPORT jlong Java_aurora_nativebuffer_core_NativeBufferJniWrapper_nativeCreat
         jclass clazz,
         jint cap) {
 
-
     return (jlong) (intptr_t) new NativeBuffer(cap);
 }
 JNIEXPORT jobject Java_aurora_nativebuffer_core_NativeBufferJniWrapper_nativeGetJavaBuffer(
@@ -40,6 +38,5 @@ JNIEXPORT jobject Java_aurora_nativebuffer_core_NativeBufferJniWrapper_nativeGet
     }
     return buffer->asByteBuffer();
 }
-
 
 }

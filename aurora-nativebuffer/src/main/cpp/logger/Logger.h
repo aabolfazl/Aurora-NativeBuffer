@@ -32,7 +32,7 @@ public:
 
 };
 
-#define LOGE Logger::shared().e
-#define LOGI Logger::shared().i
+#define loge Logger::shared().e
+#define logi Logger::shared().i
 
 #endif

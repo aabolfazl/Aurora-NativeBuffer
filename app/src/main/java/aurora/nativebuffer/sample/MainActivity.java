@@ -15,10 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         System.loadLibrary("nativebuffer");
 
-        NativeBuffer buffer = new NativeBuffer(128);
-        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
-        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
-        Log.e("MainActivity", "onCreate: " + buffer.readInt32());
+        NativeBuffer buffer = NativeBuffer.of(128);
+        Log.e("MainActivity", "onCreate: " + buffer.readInt64());
         Log.e("MainActivity", "onCreate: " + buffer.readInt32());
     }
 

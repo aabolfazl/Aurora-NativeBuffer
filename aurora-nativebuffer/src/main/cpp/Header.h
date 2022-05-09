@@ -1,0 +1,6 @@
+#ifndef AURORA_JNI_SAMPLE_HEADER_H
+#define AURORA_JNI_SAMPLE_HEADER_H
+
+#include <jni.h>
+
+#endif //AURORA_JNI_SAMPLE_HEADER_H
